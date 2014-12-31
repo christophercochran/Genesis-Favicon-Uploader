@@ -40,4 +40,4 @@ Currently only supports .ico files but already working on an update that will ac
 
 = 0.1.2 =
 * Fixed: Wrong plugin uri.
-* Fixed: Undefined erros.
+* Fixed: Undefined errors.
