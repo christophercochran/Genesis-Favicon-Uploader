@@ -63,8 +63,11 @@ $favicon_path = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_base
 function favicon_upload_settings_admin() {
 global $blog_id;
 
+$uploaded_file_name = isset( $_FILES['uploadedfile']['name'] ) ? $_FILES['uploadedfile']['name'] : '';
+$uploaded_file_tmp_name = isset( $_FILES['uploadedfile']['tmp_name'] ) ? $_FILES['uploadedfile']['tmp_name'] : '';
+
 $favicon_DIR = WP_PLUGIN_DIR.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__)) . 'favicons/';
-$favicon_check = $favicon_DIR . basename( $_FILES['uploadedfile']['name']);
+$favicon_check = $favicon_DIR . basename( $uploaded_file_name );
 $favicon_path = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__)) . 'favicons/';
 
 $extensions = array("ico");
@@ -93,7 +96,7 @@ $maybe_ico = pathinfo( $check, PATHINFO_EXTENSION );
 		echo  '<p style="color:red;"><strong>Sorry, "<u>' . $favicon_DIR . '</u>" is not writeable on the server.</strong></p>';
 	}
 
-	if( move_uploaded_file( $_FILES['uploadedfile']['tmp_name'], $check ) ) {
+	if( move_uploaded_file( $uploaded_file_tmp_name, $check ) ) {
 
 		if ( $maybe_ico != 'ico' ) {
 			echo  '<p style="color:red;"><strong>Sorry, you tried to upload a ".' . $maybe_ico . '" file. <br />Currently at this time only file type supported is ".ico."</strong></p>';
