@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Genesis Favicon uploader
-Plugin URI: http://genesistutorials.com/plug-ins/genesis-post-teasers/
+Plugin URI: http://genesistutorials.com/plug-ins/genesis-favicon-uploader/
 Description: Upload your own favicon!
 Version: .1.1b
 Author: Christopher Cochran
